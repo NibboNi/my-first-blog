@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: "Geist", serif;
+  font-size: 1.6rem;
+}
+
+a {
+  color: white;
+}
+a:hover {
+  color: #155dfc;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1536px;
+}
+
+.header__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__container::before {
+  content: "";
+  height: 1px;
+  width: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  background-color: white;
+  transform: translateX(-50%);
+  animation: border-grow 1s ease-in-out forwards;
+}
+@keyframes border-grow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.posts__container {
+  display: grid;
+  grid-template-columns: 1;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .posts__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1280px) {
+  .posts__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.post {
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 2rem;
+  border: 1px solid white;
+  border-radius: 1.2rem;
+
+  .post__title {
+    font-weight: 600;
+    font-size: 3.2rem;
+    text-transform: capitalize;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  .post__date {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+
+  .post__body {
+    padding: 2rem 1rem;
+    width: 100%;
+    font-weight: 500;
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 6px;
+  }
+}
