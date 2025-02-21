@@ -42,7 +42,9 @@ a:hover {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+}
 
+.header__title {
   a {
     text-decoration: none;
 
