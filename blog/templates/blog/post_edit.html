@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %} {% block content %}
+<h2 class="heading-title grid-cols">Nuevo post</h2>
+<form method="POST" class="form grid-cols">
+  {% csrf_token %} {{form.as_div}}
+  <button type="submit" class="btn">save</button>
+</form>
+{% endblock %}

@@ -17,6 +17,9 @@
             >djangogirls</a
           >
         </p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'post_new' %}" class="btn">nuevo post</a>
+        {% endif %}
       </div>
     </header>
 
