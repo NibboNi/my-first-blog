@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %} {% block content %}
+<article class="focus-post">
+  <header class="focus-post__header">
+    <h2 class="focus-post__title">{{ post.title }}</h2>
+    {% if post.published_date %}
+    <p class="focus-post__date">{{ post.published_date }}</p>
+    {% endif %}
+  </header>
+  <div class="focus-post__body">
+    <p class="focus-post__text">{{ post.text|linebreaksbr }}</p>
+  </div>
+</article>
+{% endblock %}

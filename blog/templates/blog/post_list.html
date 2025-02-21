@@ -1,39 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}" />
-    <title>Un Django Blog</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="container header__container">
-        <h1>Un Django Blog</h1>
-        <p>
-          Hecho con la guía de
-          <a href="https://tutorial.djangogirls.org/es/" target="_blank"
-            >djangogirls</a
-          >
-        </p>
-      </div>
-    </header>
-
-    <main>
-      <section class="container posts__container">
-        {% for post in posts %}
-        <article class="post">
-          <header>
-            <h2 class="post__title"><a href="">{{ post.title }}</a></h2>
-            <p class="post__date">{{ post.published_date }}</p>
-          </header>
-          <div class="post__body">
-            <p class="post__text">{{ post.text|linebreaksbr }}</p>
-          </div>
-        </article>
-        {% endfor %}
-      </section>
-    </main>
-  </body>
-</html>
+{% extends 'blog/base.html' %} {% block content %} {% for post in posts %}
+<article class="post">
+  <header>
+    <h2 class="post__title">
+      <a href="{% url 'post_detail' pk=post.pk  %}">{{ post.title }}</a>
+    </h2>
+    <p class="post__date">{{ post.published_date }}</p>
+  </header>
+  <div class="post__body">
+    <p class="post__text">{{ post.text|linebreaksbr }}</p>
+  </div>
+</article>
+{% endfor %} {% endblock %}
